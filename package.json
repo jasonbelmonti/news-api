@@ -1,6 +1,6 @@
 {
   "name": "@jasonbelmonti/news-api",
-  "version": "0.0.3-pre",
+  "version": "0.0.3",
   "description": "Node wrapper for newsapi.org",
   "main": "index.js",
   "scripts": {
