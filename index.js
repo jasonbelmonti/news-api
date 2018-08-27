@@ -87,12 +87,5 @@ class News {
   }
 }
 
-// configuration
-const { version } = require('./package.json');
-program.version(version);
-
-const news = new News(program);
-program.parse(process.argv);
-
 // export an instantiated singleton
-module.exports = news;
+module.exports = new News();
