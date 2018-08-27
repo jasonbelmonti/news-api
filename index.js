@@ -30,15 +30,26 @@ function clean(obj) {
 
 class News {
   everything(params) {
-    return this._paginatedEndpoint('everything', params);
+    return this._query('everything', params);
   }
 
   topHeadlines(params) {
-    return this._paginatedEndpoint('topHeadlines', params);
+    return this._query('topHeadlines', params);
   }
 
   sources(params) {
    return newsapi.v2.sources(params);
+  }
+
+  _query(endpoint, params) {
+    return new Promise((resolve, reject) => {
+      this._paginatedEndpoint(endpoint, params).then((result) => {
+        resolve(this._paginatedResponse(result));
+      })
+      .catch(function(e) {
+        reject(e);
+      });
+    });
   }
 
   _paginatedEndpoint(name, params) {
